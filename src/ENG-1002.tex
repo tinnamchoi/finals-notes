@@ -1,0 +1,197 @@
+\documentclass{article}
+\usepackage[a4paper,top=1cm,bottom=1cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{multicol}
+\setlength\columnsep{1cm}
+
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+\begin{document}
+
+\section{MATLAB}
+
+\subsection{User I/O and data types}
+\begin{lstlisting}[style=Matlab-editor]
+prompt = "Enter a value: ";
+x = input(prompt);
+txt = input("Enter some text: ", "s");
+
+formatSpec = '%s, %.3f doubled is %.3d';
+fprintf(formatSpec, txt, x, 2*double(x))
+\end{lstlisting}
+
+\subsection{Loops}
+\begin{lstlisting}[style=Matlab-editor]
+for index = initVal:step:endVal
+   statements
+   break
+end
+while a == b || ~(b > c && c <= d)
+    statements
+end
+\end{lstlisting}
+
+\subsection{Matrices and vectors}
+\begin{lstlisting}[style=Matlab-editor]
+mtr = zeros(2,4);
+vct = [1,2,3,4,5,6,7,8];
+
+mtr(1,1) = vct(8);
+\end{lstlisting}
+
+\subsection{Conditional execution}
+\begin{multicols}{2}
+\begin{lstlisting}[style=Matlab-editor]
+if expression
+    statements
+elseif expression
+    statements
+else
+    statements
+end
+\end{lstlisting}\columnbreak
+\begin{lstlisting}[style=Matlab-editor]
+switch switch_expression
+   case case_expression
+      statements
+   case case_expression
+      statements
+    ...
+   otherwise
+      statements
+end
+\end{lstlisting}
+\end{multicols}
+
+
+\subsection{Custom functions}
+\begin{lstlisting}[style=Matlab-editor]
+function [a,b] = ftn(a,b)
+    statements
+end
+
+[a,b] = ftn(a,b)
+\end{lstlisting}
+
+\subsection{Other functions}
+\begin{lstlisting}[style=Matlab-editor]
+num = abs(num);
+num = mod(num,2);
+tf = strcmp(s1, s2)
+
+for i = 1:size(mtr,1)
+    for j = 1:size(mtr,2)
+        statements
+    end
+end
+\end{lstlisting}
+\pagebreak
+
+\section{C}
+
+\subsection{User I/O}
+\begin{lstlisting}[style=CStyle]
+int main(void) {
+  int n;
+  printf("Enter a number: "); // requires stdio.h
+  scanf("%d", &n); // requires stdio.h
+  printf("The number is %d.\n", n);
+  return 0;
+}
+\end{lstlisting}
+
+\subsection{Loops}
+\begin{lstlisting}[style=CStyle]
+  for (int i = 0; i < 10; i++) {
+    printf("%d\n", i);
+  }
+  
+  int j = 0;
+  while (j < 10) {
+    printf("%d\n", j);
+    j++;
+  }
+\end{lstlisting}
+
+\subsection{Matrices}
+\begin{lstlisting}[style=CStyle]
+  int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+  
+  int *matrix2 = malloc(sizeof(int) * 2 * 2); // requires stdlib.h
+  matrix2[0] = 1;
+  matrix2[1] = 2;
+  matrix2[2] = 3;
+  matrix2[3] = 4;
+  free(matrix2);
+\end{lstlisting}
+
+\subsection{Conditional execution}
+\begin{multicols}{2}
+\begin{lstlisting}[style=CStyle]
+  int a = 1;
+  if (a == 1) {
+    printf("a is 1\n");
+  } else if (a == 2) {
+    printf("a is 2\n");
+  } else {
+    printf("a is neither 1 nor 2\n");
+  }
+\end{lstlisting}\columnbreak
+\begin{lstlisting}[style=CStyle]
+  int b = 1;
+  switch (b) {
+    case 1:
+      printf("b is 1\n");
+      break;
+    case 2:
+      printf("b is 2\n");
+      break;
+    default:
+      printf("b is neither 1 nor 2\n");
+      break;
+  }
+\end{lstlisting}
+\end{multicols}
+
+\subsection{Custom function and rng}
+\begin{lstlisting}[style=CStyle]
+int rand_num(int min, int max) {
+  srand(time(NULL)); // requires time.h
+  return min + (rand() % (max - min + 1)); // requires stdlib.h
+}
+\end{lstlisting}
+
+\subsection{String functions}
+\begin{lstlisting}[style=CStyle]
+// requires string.h
+  strcat(dest, src); // concatenate src to end of dest
+  strcpy(dest, src); // copy src to dest, overwriting
+  int len = strlen(str); // returns length of string
+\end{lstlisting}
+
+\end{document}

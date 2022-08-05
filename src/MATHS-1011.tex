@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[a4paper,top=0.5cm,bottom=0.5cm,left=0.5cm,right=0.5cm,marginparwidth=1.75cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{multicol}
+\setlength{\columnsep}{0cm}
+
+\begin{document}
+
+\begin{multicols}{2}
+\section{Algebra}
+\begin{itemize}[leftmargin=0.5cm]
+    \item Absolute function cannot be part of polynomial
+    \item Linear equations: $a_1x_1+\ldots+a_nx_n+b=0$. (e.g. $0=8$)
+    \item Homogeneous system: All constant terms are 0.
+    \item $AA^{-1}=I$
+    \item determinant $=$ product of eigenvalues
+    \item Matrix multiplication: flip second matrix by diagonal
+    \item A subspace of $\mathbb{R}^n$ is a subset $V$ of $\mathbb{R}^n$ such that: \begin{itemize}
+        \item the zero vector $\textbf{0}$ is in $V$
+        \item if $\textbf{u}$, $\textbf{v} \in V$, then $\textbf{u}+\textbf{v}\in V$
+        \item if $\textbf{u}\in V$ and $c\in\mathbb{R}$, then $c\textbf{u}\in V$
+    \end{itemize}
+    \item Basis: Linearly independent set of vectors that span $V$
+    \item det$(\lambda I-A)$=0
+    \item det$(A)=\frac{1}{\text{det}(A^{-1})}$
+    \item trivial solution: the zero solution
+    \item linear independence: $c_1\underline{v_1}+c_2\underline{v_2}+c_3\underline{v_3}=0$
+    \item $AI=A$
+    \item $\text{det}(ABC)=\text{det}(A)\text{det}(B)\text{det}(C)$
+    \item Must use pivot to find basic solution
+    \item Don't use slack variable in vertex.
+    \item Theorems:
+        \begin{enumerate}
+            \item[1.1] Any sequence of elementary operations applied to a linear system produces an equivalent system.
+            \item[3.1] Every matrix is row equivalent to a unique matrix in reduced row echelon form.
+            \item[5.1] The linear system with augmented matrix $[A|\textbf{b}]$ is consistent if and only if $\textbf{b}$ is a linear combination of the columns of $A$.
+            \item[5.2] Let $A$ be an $m\times n$ matrix.
+                \begin{enumerate}
+                    \item The linear system with augmented matrix $[A|\textbf{b}]$ is consistent for every $\textbf{b}\in\mathbb{R}^m$.
+                    \item The columns of $A$ span $\mathbb{R}^m$.
+                    \item The reduced row echelon form of $A$ does not have a row of zeros, that is, there is a pivot in every row of the reduced row echelon form of $A$.
+                \end{enumerate}
+            \item[5.3] $\mathbb{R}^m$ cannot be spanned by fewer than $m$ vectors.
+            \item[7.2] A set of more than $m$ vectors in $\mathbb{R}^m$ is linearly independent.
+            \item [7.3]: Let $\textbf{v}_1,\ldots,\textbf{v}_n$ be vectors in $\mathbb{R}^m$. Let $A$ be the $m\times n$ matrix with columns $\textbf{v}_n,\ldots,\textbf{v}_n$.
+                \begin{enumerate}
+                    \item The following are equivalent
+                        \begin{enumerate}
+                            \item The vectors $\textbf{v}_1,\ldots,\textbf{v}_n$ span $\mathbb{R}^m$
+                            \item The reduced row echelon form of $A$ has a pivot in every row.
+                            \item The linear system $[A|\textbf{b}]$ has at least one solution for every $\textbf{b}\in\mathbb{R}^m$
+                        \end{enumerate}
+                    \item The following are equivalent
+                        \begin{enumerate}
+                            \item The vectors $\textbf{v}_1,\ldots,\textbf{v}_n$ are linearly independent.
+                            \item The reduced row echelon form of $A$ has a pivot in every column.
+                            \item The linear system $[A|\textbf{b}]$ has at most one solution for every $\textbf{b}\in\mathbb{R}^m$.
+                            \item The homogenous linear system $[A|\textbf{0}]$ has only the trivial solution.
+                        \end{enumerate}
+                    \item A set of $m$ vectors in $\mathbb{R}^m$ is linearly independent if and only if it spans $\mathbb{R}^m$.
+                \end{enumerate}
+            \item[13.1] A square matrix is invertible if and only if it is row equivalent to the identity matrix.
+            \item [13.3] Let $A$ be an $n\times n$ matrix. The following are equivalent:
+                \begin{enumerate}
+                    \item $A$ is invertible.
+                    \item The reduced row echelon form of $A$ is the identity matrix.
+                    \item The linear system $A\textbf{x}=\textbf{b}$ has a unique solution for every $\textbf{b}\in\mathbb{R}^n$.
+                    \item The homogenous system $A\textbf{x}=0$ has only the trivial solution.
+                    \item The columns of $A$ span $\mathbb{R}^n$.
+                    \item The columns of $A$ are linearly independent.
+                    \item The columns of $A$ form a basis for $\mathbb{R}^n$.
+                    \item $A$ is a product of elementary matrices.
+                    \item $\det{A}\neq0$
+                \end{enumerate}
+            \item[15.4] Let $\Omega$ be a nonempty bounded feasible region in $\mathbb{R}^n$.
+                \begin{enumerate}
+                    \item The number of vertices of $\Omega$ is finite.
+                    \item Let $f(x_1,\ldots,x_n)=c_1x_1+\cdots+c_nx_n$ be an objective function. For every point $\textbf{x}$ in $\Omega$, there is a vertex $\textbf{v}$ of $\Omega$ such that $f(\textbf{v})\geq f(\textbf{x})$.
+                    \item The objective function has a largest value on $\Omega$ and it is taken at a vertex. Also ditto but smallest
+                \end{enumerate}
+            \item[16.1] The vertices of the feasible region $\Omega$ correspond to the basic feasible solutions.
+            \item[18.3] \begin{enumerate}
+                \item A square matrix $A$ is invertible if and only if $\det{A}\neq0$.
+                \item If $A$ and $B$ are square matrices of the same size, then $\det{AB}=\det{A}\det{B}$
+                \item If $A$ is an invertible matrix, then $\det{A^{-1}}=(\det{A})^{-1}$
+            \end{enumerate}
+         \end{enumerate}
+
+    
+\end{itemize}
+\end{multicols}
+
+\pagebreak
+
+\begin{multicols}{2}
+\section{Calculus}
+\begin{itemize}[leftmargin=0.5cm]
+    \item $\cot\theta=\frac{1}{\tan\theta}$
+    \item $\sec\theta=\frac{1}{\cos\theta}$
+    \item $\csc\theta=\frac{1}{\sin\theta}$
+    \item $\sin(2\theta)=2\sin\theta\cos\theta$
+    \item $\cos(2\theta)=\cos^2\theta-\sin^2\theta$
+    \item $\sinh x=\frac{e^x-e^{-x}}{2}$
+    \item $\cosh x=\frac{e^x+e^{-x}}{2}$
+    \item $\tanh x=\frac{e^{2x}-1}{e^{2x}+1}$
+    \item $H(x)=\begin{cases}1&\text{if }x\geq0,\\0&\text{if }x<0,\end{cases}$
+    \item $D(x)=\begin{cases}1&\text{if }x\text{ is a rational number,}\\0&\text{otherwise}\end{cases}$
+    \item $\log_b(xy)=\log_b(x)+\log_b(y)$
+    \item $\log_b\left(\frac{x}{y}\right)=\log_b(x)-\log_b(y)$
+    \item $\log_b(\sqrt[y]{x})=\frac{\log_b(x)}{y}$
+    \item $x^{\log_b(y)}=y^{\log_b(x)}$
+    \item $(f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}$
+    \item Try something like $\od{}{x}(\cosh x)=\od{}{x}(\frac{1}{2}(e^x+e^{-x}))\\=\frac{1}{2}(e^x-e^{-x})=\sinh x$. 
+    \item Remember to look for previous given identities.
+    \item Let $u$ and $v$ be differentiable function
+    \item $\od{}{x}\sin x=\cos x$
+    \item $\od{}{x}\cos x=-\sin x$
+    \item $\od{}{x}\tan x=\sec^2x$
+    \item $\od{}{x}e^x=e^x$
+    \item $\od{}{x}\ln x=\frac{1}{x}$
+    \item $\od{}{x}(c_1u+c_2v)=c_1\od{u}{x}+c_2\od{v}{x}$
+    \item Product rule: $\od{}{x}(uv)=v\od{u}{x}+u\od{v}{x}$
+    \item $\od{}{x}x^r=rx^{r-1}\quad(r\neq0)$
+    \item Quotient rule: $\od{}{x}\frac{u}{v}=\displaystyle\frac{v\od{u}{x}-u\od{v}{x}}{v^2}$
+    \item Chain rule:$\od{y}{x}=\od{y}{u}\cdot\od{u}{x}$ or $\od{}{x}f(g(x))=f'(g(x))g'(x)$
+    \item $\od{}{x}x=1$
+    \item Exponential function rule: $\od{}{x}a^u=a^u\ln a\od{u}{x}$
+    \item Derivative of constant is $0$.
+    \item Critical point of continuous function: a point at which the derivative is 0 or undefined.
+    \item $\displaystyle\int x^rdx=\frac{x^{r+1}}{r+1}+c, r\neq-1$
+    \item $\displaystyle\int\frac{1}{x}dx=\ln|x|+c$
+    \item $\displaystyle\int e^xdx=e^x+c$
+    \item $\displaystyle\int\sin{x}\ dx=-\cos x+c$
+    \item $\displaystyle\int\cos x\ dx=\sin x+c$
+    \item $\displaystyle\int\sec^2x\ dx=\tan x+c$
+    \item $\displaystyle\int\sinh x\ dx=\cosh x+c$
+    \item $\displaystyle\int\cosh x\ dx=\sinh x+c$
+    \item $\displaystyle\int\frac{dx}{\sqrt{1-x^2}}=\sin^{-1}x+c,\quad|x|<1$
+    \item $\displaystyle\int\frac{dx}{1+x^2}=\tan^{-1}x+c$
+    \item $\displaystyle\int{a^u}du=\frac{a^u}{\ln{a}}$
+    \item The Intermediate Value Theorem: Let $f(x)$ be a continuous function defined on an interval $[a,b]$. Then $f(x)$ takes every value between $f(a)$ and $f(b)$ at least once.
+    \item The Extreme Value Theorem: Let $f$ be a continuous function defined on a closed, bounded interval $[a,b]$. Then, $f$ has a global maximum and minimum on $[a,b]$.
+    \item Find global maxima and minima by finding $f'(x)=0$ or undefined and end points of the interval.
+    \item The First Fundamental Theorem of Calculus: Let $f(t)$ be a continuous function on $[a,b]$, and let $a<x<b$. Then $$G(x)=\int^x_af(t)\ dt$$ is an antiderivative for $f$ on $(a,b)$ - i.e. $$\od{G}{x}=f(x)$$
+    \item The Second Fundamental Theorem of Calculus: Let $f$ be a continuous function on $[a,b]$ and $G$ any antiderivative of $f$ on $[a,b]$. Then $$\int^b_af(t)dt=G(b)-G(a)=[G(x)]^b_a$$
+    \item Cosine rule $a^2=b^2+c^2-2bc\cos{A}$
+    \item Integration by substitution: $\displaystyle\int f(g(x))g'(x)dx\implies\displaystyle\int f(u)du$
+    \item Integration by parts: $\displaystyle\int u\od{v}{x}dx=uv-\displaystyle\int v\od{u}{x}dx$
+    \item Integration by partial fractions: idk how to explain it im extremely tired but like compare numerators ok
+\end{itemize}
+\end{multicols}
+
+\end{document}
